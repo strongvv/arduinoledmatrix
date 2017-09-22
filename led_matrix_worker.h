@@ -29,7 +29,8 @@ static uint8_t screen[8][8] = { //led colors
                                 {0, 0, 0, 0, 0, 3, 3, 0}
                               };
 
-unsigned long bufferLong [16] = {0}; 
+byte bufferLong [16] = {0}; 
+static const byte scrollDelay = 75;
 
 void swap(uint8_t & a, uint8_t & b);
 void reverse(uint8_t * a, uint8_t left, uint8_t right);
@@ -43,4 +44,5 @@ void draw_pixel(uint8_t x, uint8_t y, uint8_t color, bool transparent);
 void fill_area(uint8_t x_start, uint8_t y_start, uint8_t x_end, uint8_t y_end, uint8_t color);
 void draw_screen();
 void scroll_font();
+void loadBufferLong(int ascii);
 #endif

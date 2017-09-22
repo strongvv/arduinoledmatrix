@@ -1,3 +1,4 @@
+#include "font.h"
 
 void draw_screen(){
   for (uint8_t i = 0; i != SCREEN_SIZE; ++i){
@@ -135,20 +136,20 @@ void scroll_font() {
 }
 
 void loadBufferLong(int ascii){
-  if (ascii >= 0x0020 && ascii <=0x00ff){
-    for (uint8_t a=0; a != 8; ++a){ // Loop 7 times for a 5x7 font
+  if (ascii >= 32 && ascii <= 255){
+    for (uint8_t a = 0; a != 8; ++a){ // Loop 7 times for a 5x7 font
       // Index into character table to get row data
-      unsigned long c = pgm_read_byte_near(font5x7 + ((ascii - 0x20) * 9) + a); 
-      unsigned long x = bufferLong [a*2];     // Load current scroll buffer
-      x = x | c;                              // OR the new character onto end of current
-      bufferLong [a*2] = x;                   // Store in buffer
+      byte c = pgm_read_byte_near( font5x7 + (( ascii - 32 ) * 9) + a ); 
+      byte x = bufferLong[a * 2];     // Load current scroll buffer
+      x |= c;                              // OR the new character onto end of current
+      bufferLong [a * 2] = x;                   // Store in buffer
     }
     // Index into character table for kerning data
-    byte count = pgm_read_byte_near(font5x7 +((ascii - 0x20) * 9) + 8);  
-    for (byte x=0; x != count; ++x){
-      rotateBufferLong();
-      printBufferLong();
-      delay(scrollDelay);
-    }
+//    byte count = pgm_read_byte_near(font5x7 +(( ascii - 32 ) * 9) + 8);  
+//    for (byte x=0; x != count; ++x){
+//      rotateBufferLong();
+//      printBufferLong();
+//      delay(scrollDelay);
+//    }
   }
 }
