@@ -5,20 +5,20 @@
 #include <avr/pgmspace.h>
 
 const int CE = 10;                                                      // defined  the CE function pin
-static byte data[4] = {0x0, 0x0, 0x0, 0x0}; 
+byte data[4] = {0x0, 0x0, 0x0, 0x0}; 
 
-static const byte BLACK = 0;
-static const byte RED = 1;
-static const byte GREEN = 2;
-static const byte YELLOW = 3;
-static const byte BLUE = 4;
-static const byte MAGENTA = 5;
-static const byte TURQUOISE = 6;
-static const byte WHITE = 7;
+const byte BLACK = 0;
+const byte RED = 1;
+const byte GREEN = 2;
+const byte YELLOW = 3;
+const byte BLUE = 4;
+const byte MAGENTA = 5;
+const byte TURQUOISE = 6;
+const byte WHITE = 7;
 
-static const byte SCREEN_SIZE = 8;
+const byte SCREEN_SIZE = 8;
 
-static uint8_t screen[8][8] = { //led colors
+uint8_t screen[8][8] = { //led colors
                                 {0, 1, 1, 0, 0, 0, 0, 0},
                                 {1, 1, 1, 1, 2, 0, 0, 2},
                                 {1, 1, 1, 1, 2, 2, 2, 2},
@@ -27,10 +27,10 @@ static uint8_t screen[8][8] = { //led colors
                                 {4, 4, 4, 4, 3, 3, 3, 3},
                                 {4, 0, 0, 4, 3, 3, 3, 3},
                                 {0, 0, 0, 0, 0, 3, 3, 0}
-                              };
+                       };
 
 byte bufferLong [16] = {0}; 
-static const byte scrollDelay = 75;
+const byte scrollDelay = 75;
 
 void swap(uint8_t & a, uint8_t & b);
 void reverse(uint8_t * a, uint8_t left, uint8_t right);

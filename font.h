@@ -1,6 +1,6 @@
 
-const unsigned char interval = 1;
-const unsigned char font5x7[] PROGMEM = {     // Numeric Font Matrix (Arranged as 7x font data + 1x kerning data)
+const byte interval = 1;
+const byte font5x7[] PROGMEM = {     // Numeric Font Matrix (Arranged as 7x font data + 1x kerning data)
     B00000000,   //Space (Char 0x20)           // Массив шрифта переделан на 8х, чтобы высота текста была 8 точек,
     B00000000,                                // вместо 7, при этомпоявилась возможность правильно расположить
     B00000000,                                // символы с "подстрочными" элементами (в т.ч. английские);
